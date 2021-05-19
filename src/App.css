@@ -4,7 +4,7 @@
 
 .menu-item {
   display: flex;
-  width: 100px;
+  width: 150px;
   height: 50px;
   border: 1px black solid;
   border-radius: 5px;
@@ -19,7 +19,7 @@
 
 .menu-item-selected {
   display: flex;
-  width: 100px;
+  width: 150px;
   height: 50px;
   border: 1px black solid;
   border-radius: 5px;
@@ -30,7 +30,7 @@
 
 .menu-item-logout {
   display: flex;
-  width: 100px;
+  width: 150px;
   height: 50px;
   border: 1px black solid;
   border-radius: 5px;

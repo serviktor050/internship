@@ -35,6 +35,15 @@ export default function Menu() {
               Главная
             </NavLink>
           </div>
+          <div className="menu-item">
+            <NavLink
+              to="/list-users"
+              activeClassName="menu-item-selected"
+              exact
+            >
+              Пользователи
+            </NavLink>
+          </div>
           <div
             className="menu-item-logout"
             onClick={() => {

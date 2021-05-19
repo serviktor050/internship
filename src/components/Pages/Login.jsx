@@ -22,7 +22,7 @@ export default function Login() {
     <>
       {userToken !== null && userToken.token !== "" && <Redirect to="/" />}
       <div>
-        Страница авторизации
+        <h1>Страница авторизации</h1>
         <form onSubmit={handleSubmit}>
           <input
             name="email"

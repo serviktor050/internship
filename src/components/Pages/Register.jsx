@@ -25,7 +25,7 @@ export default function Register() {
     <>
       {userToken !== null && userToken.token !== "" && <Redirect to="/" />}
       <div>
-        <h1>Страница регистрации</h1>
+        <h1>Регистрация</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input {...register("email")} type="text" onChange={handleChange} />
           <input

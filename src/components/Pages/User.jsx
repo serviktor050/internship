@@ -13,7 +13,7 @@ export default function User(props) {
 
   useEffect(() => {
     dispatch(fetchUserDataRequest(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <>
@@ -26,7 +26,10 @@ export default function User(props) {
           </h1>
           <div className="user-card">
             <div className="user-image">
-              <img src={`${userData.data.avatar}`} />
+              <img
+                src={`${userData.data.avatar}`}
+                alt={`${userData.data.first_name} ${userData.data.last_name}`}
+              />
             </div>
             <div className="user-info">
               <div className="user-info-name">

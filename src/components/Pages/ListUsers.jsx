@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { listUsersRequest } from "../../redux/listUsersPage/actions/actionsCreators";
 import { Table } from "antd";
 import { nanoid } from "nanoid";
@@ -8,6 +9,8 @@ import { nanoid } from "nanoid";
 export default function ListUsers() {
   const { userToken } = useSelector((state) => state.loginAndRegisterPage);
   const { response } = useSelector((state) => state.listUsersPage);
+
+  const history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -20,12 +23,10 @@ export default function ListUsers() {
       title: "Avatar",
       dataIndex: "avatar",
       key: "avatar",
-      render: (avatar, obj) => {
+      render: (avatar) => {
         return (
           <>
-            <Link to={`/list-users/user-${obj.id}`}>
-              <img src={`${avatar}`} alt={avatar} />
-            </Link>
+            <img src={`${avatar}`} alt={avatar} />
           </>
         );
       },
@@ -68,7 +69,18 @@ export default function ListUsers() {
       <h1>Пользователи</h1>
       {response !== null && (
         <>
-          <Table columns={columns} dataSource={updateData} pagination={false} />
+          <Table
+            columns={columns}
+            dataSource={updateData}
+            pagination={false}
+            onRow={(record) => {
+              return {
+                onClick: (event) => {
+                  return history.push(`/list-users/user-${record.id}`);
+                },
+              };
+            }}
+          />
           {response.page === 1 && (
             <div className="pagination-list-users">
               <div className="page-list-users">{response.page}</div>

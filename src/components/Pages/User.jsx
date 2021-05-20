@@ -10,8 +10,10 @@ export default function User(props) {
 
   const dispatch = useDispatch();
 
+  let id = Number(props.match.params.id);
+
   useEffect(() => {
-    dispatch(fetchUserDataRequest());
+    dispatch(fetchUserDataRequest(id));
   }, [dispatch]);
 
   return (

@@ -3,8 +3,11 @@ import {
   FETCH_USER_DATA_SUCCESS,
 } from "./actionsTypes";
 
-export const fetchUserDataRequest = () => ({
+export const fetchUserDataRequest = (id) => ({
   type: FETCH_USER_DATA_REQUEST,
+  payload: {
+    id,
+  },
 });
 
 export const fetchUserDataSuccess = (userData) => ({

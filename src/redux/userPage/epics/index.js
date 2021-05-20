@@ -7,9 +7,10 @@ import { fetchUserDataSuccess } from "../actions/actionsCreators";
 export const userPageEpic = (action$) =>
   action$.pipe(
     ofType(FETCH_USER_DATA_REQUEST),
-    switchMap(() =>
+    map((o) => o.payload.id),
+    switchMap((id) =>
       ajax
-        .getJSON("https://reqres.in/api/users?page=2&id=7")
+        .getJSON(`https://reqres.in/api/users?id=${id}`)
         .pipe(map((o) => fetchUserDataSuccess(o)))
     )
   );

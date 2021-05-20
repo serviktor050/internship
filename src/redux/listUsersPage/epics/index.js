@@ -7,9 +7,10 @@ import { listUsersSuccess } from "../actions/actionsCreators";
 export const listUsersEpic = (actions$) =>
   actions$.pipe(
     ofType(LIST_USERS_REQUEST),
-    switchMap(() =>
+    map((o) => o.payload.page),
+    switchMap((page) =>
       ajax
-        .getJSON("https://reqres.in/api/users?page=1")
+        .getJSON(`https://reqres.in/api/users?page=${page}`)
         .pipe(map((o) => listUsersSuccess(o)))
     )
   );

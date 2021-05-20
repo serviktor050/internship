@@ -81,3 +81,34 @@ a {
 .user-info p {
   font-weight: bold;
 }
+
+.pagination-list-users {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.down-list-users,
+.up-list-users {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border: 1px black solid;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(182, 182, 182);
+  cursor: pointer;
+}
+
+.page-list-users {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 1px black solid;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}

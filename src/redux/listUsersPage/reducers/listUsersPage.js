@@ -4,7 +4,7 @@ import {
 } from "../actions/actionsTypes";
 
 const initialState = {
-  data: null,
+  response: null,
 };
 
 export default function listUsersPageReducer(state = initialState, action) {
@@ -16,7 +16,7 @@ export default function listUsersPageReducer(state = initialState, action) {
     case LIST_USERS_SUCCESS:
       return {
         ...state,
-        data: action.payload.response.data,
+        response: action.payload.response,
       };
     default:
       return state;

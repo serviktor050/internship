@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-
 import { fetchUserDataRequest } from "../../redux/userPage/actions/actionsCreators";
 
 export default function User(props) {
@@ -25,6 +24,21 @@ export default function User(props) {
             {`${userData.data.first_name}`}
             {` ${userData.data.last_name}`}
           </h1>
+          <div className="user-card">
+            <div className="user-image">
+              <img src={`${userData.data.avatar}`} />
+            </div>
+            <div className="user-info">
+              <div className="user-info-name">
+                <p>Name:</p>
+                {` ${userData.data.first_name}`}
+                {` ${userData.data.last_name}`}
+              </div>
+              <div className="user-info-email">
+                <p>e-mail:</p> {` ${userData.data.email}`}
+              </div>
+            </div>
+          </div>
           <div
             className="back-button"
             onClick={() => {

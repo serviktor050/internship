@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { fetchUserDataRequest } from "../../redux/userPage/actions/actionsCreators";
 
 export default function User(props) {
@@ -9,6 +9,7 @@ export default function User(props) {
 
   const dispatch = useDispatch();
 
+  const history = useHistory();
   let id = Number(props.match.params.id);
 
   useEffect(() => {
@@ -45,7 +46,7 @@ export default function User(props) {
           <div
             className="back-button"
             onClick={() => {
-              props.history.goBack();
+              history.goBack();
             }}
           >
             Back

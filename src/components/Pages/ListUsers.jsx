@@ -1,22 +1,27 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { listUsersRequest } from "../../redux/listUsersPage/actions/actionsCreators";
 import { Table } from "antd";
 import { nanoid } from "nanoid";
 
-export default function ListUsers() {
+export default function ListUsers(props) {
   const { userToken } = useSelector((state) => state.loginAndRegisterPage);
   const { response } = useSelector((state) => state.listUsersPage);
 
   const history = useHistory();
 
+  let pageNumber = props.location.search.substr(6);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listUsersRequest());
-  }, [dispatch]);
+    if (pageNumber !== "") {
+      dispatch(listUsersRequest(pageNumber));
+    } else {
+      dispatch(listUsersRequest());
+    }
+  }, [dispatch, pageNumber]);
 
   const columns = [
     {
@@ -88,6 +93,7 @@ export default function ListUsers() {
                 className="up-list-users"
                 onClick={() => {
                   dispatch(listUsersRequest((response.page += 1)));
+                  history.push(`/list-users?page=${response.page}`);
                 }}
               >
                 +
@@ -100,6 +106,11 @@ export default function ListUsers() {
                 className="down-list-users"
                 onClick={() => {
                   dispatch(listUsersRequest((response.page -= 1)));
+                  if (response.page === 1) {
+                    history.push(`/list-users`);
+                  } else {
+                    history.push(`/list-users?page=${response.page}`);
+                  }
                 }}
               >
                 -

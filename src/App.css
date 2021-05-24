@@ -1,3 +1,12 @@
+body {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .menu {
   display: flex;
 }
@@ -129,8 +138,12 @@ a {
   display: none;
 }
 
+.form-type-button:hover {
+  background-color: rgb(201, 3, 250);
+}
+
 .form-type-button input[type="radio"]:checked + label {
-  background-color: rgb(197, 8, 245);
+  background-color: rgb(128, 3, 160);
   color: white;
 }
 
@@ -140,4 +153,39 @@ a {
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+}
+
+.form-item {
+  margin-top: 2%;
+}
+
+.form-item-input input {
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+  margin-bottom: 1%;
+}
+
+.input-buttons {
+  display: flex;
+}
+
+.input-buttons-item {
+  display: flex;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1%;
+  background-color: rgb(189, 236, 245);
+  cursor: pointer;
+}
+
+.input-buttons-item:hover {
+  background-color: rgb(105, 222, 243);
+}
+
+.input-buttons-item:last-child {
+  margin-right: 0;
 }

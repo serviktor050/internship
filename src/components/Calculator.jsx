@@ -5,6 +5,9 @@ import {
   creditOn,
   paymentOn,
 } from "../redux/mortgageCalculator/actions/actionsCreators";
+import RealtyForm from "./MortgageCalculatorForms/RealtyForm";
+import CreditForm from "./MortgageCalculatorForms/CreditForm";
+import PaymentForm from "./MortgageCalculatorForms/PaymentForm";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
@@ -55,46 +58,24 @@ export default function Calculator() {
               <label htmlFor="payment">Платеж</label>
             </div>
           </div>
-          {realty && <div className="form">форма Недвижимость</div>}
-          {credit && <div className="form">форма Кредит</div>}
-          {payment && <div className="form">форма Платеж</div>}
+          {realty && (
+            <div className="form">
+              <RealtyForm />
+            </div>
+          )}
+          {credit && (
+            <div className="form">
+              <CreditForm />
+            </div>
+          )}
+          {payment && (
+            <div className="form">
+              <PaymentForm />
+            </div>
+          )}
         </div>
         <div className="info"></div>
       </div>
     </>
   );
 }
-
-// Пример для фйормы на будущее
-/* <div className="form-item">
-              <div className="form-item-name">
-                <p>Стоимость недвижимости</p>
-              </div>
-              <div className="form-item-input">
-                <input type="text" />
-              </div>
-            </div>
-            <div className="form-item">
-              <div className="form-item-name">
-                <p>Первоначальный взнос</p>
-              </div>
-              <div className="form-item-input">
-                <input type="text" />
-              </div>
-            </div>
-            <div className="form-item">
-              <div className="form-item-name">
-                <p>Срок кредита</p>
-              </div>
-              <div className="form-item-input">
-                <input type="text" />
-              </div>
-            </div>
-            <div className="form-item"> 
-              <div className="form-item-name">
-                <p>Процентная ставка</p>
-              </div>
-              <div className="form-item-input">
-                <input type="text" />
-              </div>
-            </div>*/

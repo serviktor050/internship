@@ -112,3 +112,32 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.form-type-button {
+  display: flex;
+  width: 150px;
+  height: 35px;
+  border: 1px black solid;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.form-type-button input[type="radio"] {
+  display: none;
+}
+
+.form-type-button input[type="radio"]:checked + label {
+  background-color: rgb(197, 8, 245);
+  color: white;
+}
+
+.form-type-button label {
+  width: 150px;
+  line-height: 35px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}

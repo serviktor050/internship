@@ -6,12 +6,14 @@ import ListUsers from "./components/Pages/ListUsers";
 import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
 import User from "./components/Pages/User";
+import MortgageCalculator from "./components/Pages/MortgageCalculator";
 
 function App() {
   return (
     <Router>
       <Menu />
       <Switch>
+        <Route path="/mortgage-calculator" component={MortgageCalculator} />
         <Route path="/list-users/user-:id" component={User} />
         <Route path="/list-users" component={ListUsers} />
         <Route path="/login" component={Login} />

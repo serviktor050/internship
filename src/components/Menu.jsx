@@ -44,6 +44,15 @@ export default function Menu() {
               Пользователи
             </NavLink>
           </div>
+          <div className="menu-item">
+            <NavLink
+              to="/mortgage-calculator"
+              activeClassName="menu-item-selected"
+              exact
+            >
+              Расчитать ипотеку
+            </NavLink>
+          </div>
           <div
             className="menu-item-logout"
             onClick={() => {

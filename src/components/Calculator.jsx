@@ -58,23 +58,25 @@ export default function Calculator() {
               <label htmlFor="payment">Платеж</label>
             </div>
           </div>
-          {realty && (
-            <div className="form">
-              <RealtyForm />
-            </div>
-          )}
-          {credit && (
-            <div className="form">
-              <CreditForm />
-            </div>
-          )}
-          {payment && (
-            <div className="form">
-              <PaymentForm />
-            </div>
-          )}
+          <div className="form-and-info">
+            {realty && (
+              <div className="form">
+                <RealtyForm />
+              </div>
+            )}
+            {credit && (
+              <div className="form">
+                <CreditForm />
+              </div>
+            )}
+            {payment && (
+              <div className="form">
+                <PaymentForm />
+              </div>
+            )}
+            <div className="info">Информация о кредите</div>
+          </div>
         </div>
-        <div className="info"></div>
       </div>
     </>
   );

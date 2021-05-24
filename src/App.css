@@ -7,6 +7,14 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/*******Горизонтальное меню*******/
+
 .menu {
   display: flex;
   margin-top: 1%;
@@ -54,11 +62,6 @@ body {
   cursor: pointer;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 .back-button {
   display: flex;
   width: 100px;
@@ -70,6 +73,8 @@ a {
   background-color: rgb(182, 182, 182);
   cursor: pointer;
 }
+
+/*******Страница "Пользователи" и Страница "Карточка пользователя"*******/
 
 .user-card {
   display: flex;
@@ -111,8 +116,13 @@ a {
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(182, 182, 182);
+  background-color: aqua;
   cursor: pointer;
+}
+
+.down-list-users:hover,
+.up-list-users:hover {
+  background-color: rgb(183, 212, 216);
 }
 
 .page-list-users {
@@ -125,6 +135,24 @@ a {
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+}
+
+/*******Страница "Расчитать ипотеку"*******/
+
+.form-and-info {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  width: 40%;
+}
+
+.info {
+  width: 40%;
 }
 
 .form-type-button {

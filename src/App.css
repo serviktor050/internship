@@ -9,17 +9,22 @@ body {
 }
 .menu {
   display: flex;
+  margin-top: 1%;
 }
 
 .menu-item {
   display: flex;
   width: 150px;
   height: 50px;
-  border: 1px black solid;
+  border: 1px rgb(46, 181, 243) solid;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
   margin-right: 5px;
+}
+
+.menu-item:hover {
+  background-color: rgb(183, 212, 216);
 }
 
 .menu-item:last-child {
@@ -30,7 +35,7 @@ body {
   display: flex;
   width: 150px;
   height: 50px;
-  border: 1px black solid;
+  border: none;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
@@ -102,7 +107,7 @@ a {
   display: flex;
   width: 35px;
   height: 35px;
-  border: 1px black solid;
+  border: 1px rgb(46, 181, 243) solid;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -116,7 +121,7 @@ a {
   height: 35px;
   margin-left: 5px;
   margin-right: 5px;
-  border: 1px black solid;
+  border: 1px rgb(46, 181, 243) solid;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -126,7 +131,7 @@ a {
   display: flex;
   width: 150px;
   height: 35px;
-  border: 1px black solid;
+  border: 1px rgb(46, 181, 243) solid;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
@@ -139,12 +144,11 @@ a {
 }
 
 .form-type-button:hover {
-  background-color: rgb(201, 3, 250);
+  background-color: rgb(183, 212, 216);
 }
 
 .form-type-button input[type="radio"]:checked + label {
-  background-color: rgb(128, 3, 160);
-  color: white;
+  background-color: aqua;
 }
 
 .form-type-button label {
@@ -183,7 +187,7 @@ a {
 }
 
 .input-buttons-item:hover {
-  background-color: rgb(105, 222, 243);
+  background-color: rgb(183, 212, 216);
 }
 
 .input-buttons-item:last-child {

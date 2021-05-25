@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Calculator from "../Calculator";
+import Calculator from "../MortgageCalculator/Calculator";
 
 export default function MortgageCalculator() {
   const { userToken } = useSelector((state) => state.loginAndRegisterPage);

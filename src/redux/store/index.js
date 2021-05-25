@@ -4,7 +4,8 @@ import { combineEpics, createEpicMiddleware } from "redux-observable";
 import loginAndRegisterPageReducer from "../reducers/loginAndRegisterPage";
 import listUsersPageReducer from "../listUsersPage/reducers/listUsersPage";
 import userPageReducer from "../userPage/reducers/userPage";
-import mortgageCalculatorReducer from "../mortgageCalculator/reducers/mortgageCalculator";
+import mortgageCalculatorMenuReducer from "../mortgageCalculator/menu/reducers/mortgageCalculatorMenu";
+import mortgageCalculatorFormReducer from "../mortgageCalculator/form/reducers/mortgageCalculatorForm";
 
 import { loginEpic } from "../loginPage/epics/index";
 import { registerEpic } from "../registerPage/epics/index";
@@ -17,7 +18,8 @@ const reducer = combineReducers({
   loginAndRegisterPage: loginAndRegisterPageReducer,
   listUsersPage: listUsersPageReducer,
   userPage: userPageReducer,
-  mortgageCalculator: mortgageCalculatorReducer,
+  mortgageCalculatorMenu: mortgageCalculatorMenuReducer,
+  mortgageCalculatorForm: mortgageCalculatorFormReducer,
 });
 
 const epic = combineEpics(loginEpic, registerEpic, listUsersEpic, userPageEpic);

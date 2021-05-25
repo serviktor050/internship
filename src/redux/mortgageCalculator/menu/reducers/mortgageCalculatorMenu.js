@@ -6,7 +6,7 @@ const ininialState = {
   payment: false,
 };
 
-export default function mortgageCalculatorReducer(
+export default function mortgageCalculatorMenuReducer(
   state = ininialState,
   action
 ) {

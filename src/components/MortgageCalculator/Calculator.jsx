@@ -4,7 +4,7 @@ import {
   realtyOn,
   creditOn,
   paymentOn,
-} from "../../redux/mortgageCalculator/actions/actionsCreators";
+} from "../../redux/mortgageCalculator/menu/actions/actionsCreators";
 import RealtyForm from "./CalculatorForms/RealtyForm";
 import CreditForm from "./CalculatorForms/CreditForm";
 import PaymentForm from "./CalculatorForms/PaymentForm";
@@ -12,14 +12,37 @@ import CreditInformation from "./CreditInformation";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
-    (state) => state.mortgageCalculator
+    (state) => state.mortgageCalculatorMenu
   );
+
+  const {
+    costOfRealEstate,
+    initialPayment,
+    loanTerm,
+    loanAmount,
+    interestRate,
+    monthlyPayment,
+  } = useSelector((state) => state.mortgageCalculatorForm);
+
+  let formToSend = {
+    costOfRealEstate: costOfRealEstate,
+    initialPayment: initialPayment,
+    loanTerm: loanTerm,
+    loanAmount: loanAmount,
+    interestRate: interestRate,
+    monthlyPayment: monthlyPayment,
+  };
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(realtyOn());
   }, [dispatch]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formToSend);
+  };
 
   return (
     <>
@@ -59,7 +82,7 @@ export default function Calculator() {
               <label htmlFor="payment">Платеж</label>
             </div>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-and-info">
               {realty && (
                 <div className="form">

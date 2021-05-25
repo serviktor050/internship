@@ -257,3 +257,23 @@ a {
   color: white;
   cursor: pointer;
 }
+
+.total-name p {
+  margin-top: 2%;
+}
+
+.input-buttons-item input[type="radio"] {
+  display: none;
+}
+
+.input-buttons-item input[type="radio"]:checked + label {
+  background-color: aqua;
+}
+
+.input-buttons-item label {
+  width: 50px;
+  line-height: 30px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}

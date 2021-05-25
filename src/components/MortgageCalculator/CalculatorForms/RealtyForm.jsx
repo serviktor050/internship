@@ -6,6 +6,9 @@ import {
   changeLoanTermField,
   changeInterestRateField,
 } from "../../../redux/mortgageCalculator/form/actions/actionsCreators";
+import ChoosingInitialPayment from "../FastButtons/ChoosingInitialPayment";
+import ChoosingLoanTerm from "../FastButtons/ChoosingLoanTerm";
+import ChoosingInterestRate from "../FastButtons/ChoosingInterestRate";
 
 export default function RealtyForm() {
   const dispatch = useDispatch();
@@ -40,14 +43,7 @@ export default function RealtyForm() {
             value={initialPayment}
           />
         </div>
-        <div className="input-buttons">
-          <div className="input-buttons-item">0%</div>
-          <div className="input-buttons-item">10%</div>
-          <div className="input-buttons-item">15%</div>
-          <div className="input-buttons-item">20%</div>
-          <div className="input-buttons-item">25%</div>
-          <div className="input-buttons-item">30%</div>
-        </div>
+        <ChoosingInitialPayment />
       </div>
       <div className="form-item">
         <div className="form-item-name">Срок кредита</div>
@@ -61,12 +57,7 @@ export default function RealtyForm() {
             value={loanTerm}
           />
         </div>
-        <div className="input-buttons">
-          <div className="input-buttons-item">5 лет</div>
-          <div className="input-buttons-item">10 лет</div>
-          <div className="input-buttons-item">15 лет</div>
-          <div className="input-buttons-item">20 лет</div>
-        </div>
+        <ChoosingLoanTerm />
       </div>
       <div className="form-item">
         <div className="form-item-name">Процентная ставка</div>
@@ -80,13 +71,7 @@ export default function RealtyForm() {
             value={interestRate}
           />
         </div>
-        <div className="input-buttons">
-          <div className="input-buttons-item">4,5%</div>
-          <div className="input-buttons-item">6%</div>
-          <div className="input-buttons-item">7,5%</div>
-          <div className="input-buttons-item">9,1%</div>
-          <div className="input-buttons-item">10%</div>
-        </div>
+        <ChoosingInterestRate />
       </div>
     </>
   );

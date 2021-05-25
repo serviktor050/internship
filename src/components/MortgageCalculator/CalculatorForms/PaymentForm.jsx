@@ -6,6 +6,8 @@ import {
   changeLoanTermField,
   changeInterestRateField,
 } from "../../../redux/mortgageCalculator/form/actions/actionsCreators";
+import ChoosingLoanTerm from "../FastButtons/ChoosingLoanTerm";
+import ChoosingInterestRate from "../FastButtons/ChoosingInterestRate";
 
 export default function PaymentForm() {
   const dispatch = useDispatch();
@@ -53,12 +55,7 @@ export default function PaymentForm() {
             value={loanTerm}
           />
         </div>
-        <div className="input-buttons">
-          <div className="input-buttons-item">5 лет</div>
-          <div className="input-buttons-item">10 лет</div>
-          <div className="input-buttons-item">15 лет</div>
-          <div className="input-buttons-item">20 лет</div>
-        </div>
+        <ChoosingLoanTerm />
       </div>
       <div className="form-item">
         <div className="form-item-name">Процентная ставка</div>
@@ -72,13 +69,7 @@ export default function PaymentForm() {
             value={interestRate}
           />
         </div>
-        <div className="input-buttons">
-          <div className="input-buttons-item">4,5%</div>
-          <div className="input-buttons-item">6%</div>
-          <div className="input-buttons-item">7,5%</div>
-          <div className="input-buttons-item">9,1%</div>
-          <div className="input-buttons-item">10%</div>
-        </div>
+        <ChoosingInterestRate />
       </div>
     </>
   );

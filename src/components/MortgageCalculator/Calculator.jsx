@@ -9,7 +9,8 @@ import RealtyForm from "./CalculatorForms/RealtyForm";
 import CreditForm from "./CalculatorForms/CreditForm";
 import PaymentForm from "./CalculatorForms/PaymentForm";
 import { getMonthlyPayment } from "../../CalculationFunctions/getMonthlyPayment";
-import RealtyCreditInformation from "./Info/RealtyCreditInformation";
+import RealtyInformation from "./Info/RealtyInformation";
+import CreditInformation from "./Info/CreditInformation";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
@@ -117,7 +118,7 @@ export default function Calculator() {
                         </h2>
                       </div>
                     </div>
-                    <RealtyCreditInformation />
+                    <RealtyInformation />
                   </>
                 )}
                 {credit && (
@@ -137,7 +138,7 @@ export default function Calculator() {
                         </h2>
                       </div>
                     </div>
-                    {/* <CreditInformation /> */}
+                    <CreditInformation />
                   </>
                 )}
 

@@ -9,6 +9,7 @@ import RealtyForm from "./CalculatorForms/RealtyForm";
 import CreditForm from "./CalculatorForms/CreditForm";
 import PaymentForm from "./CalculatorForms/PaymentForm";
 import CreditInformation from "./CreditInformation";
+import { getMonthlyPayment } from "../../CalculationFunctions/getMonthlyPayment";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
@@ -106,7 +107,14 @@ export default function Calculator() {
                       <p>Ваш ежемесячный платеж</p>
                     </div>
                     <div className="total-value">
-                      <h2> ₽</h2>
+                      <h2>
+                        {getMonthlyPayment(
+                          Number(costOfRealEstate) - Number(initialPayment),
+                          Number(loanTerm),
+                          Number(interestRate)
+                        )}
+                        ₽
+                      </h2>
                     </div>
                   </div>
                 )}

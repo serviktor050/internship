@@ -260,6 +260,11 @@ a {
 
 .total-name p {
   margin-top: 2%;
+  text-align: center;
+}
+
+.total-value h2 {
+  text-align: center;
 }
 
 .input-buttons-item input[type="radio"] {

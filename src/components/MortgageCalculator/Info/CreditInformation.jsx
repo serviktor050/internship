@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import { getMonthlyPayment } from "../../../CalculationFunctions/getMonthlyPayment";
 import { getPercentages } from "../../../CalculationFunctions/getPercentages";
 
-export default function RealtyCreditInformation() {
-  const { costOfRealEstate, initialPayment, loanTerm, interestRate } =
-    useSelector((state) => state.mortgageCalculatorForm);
+export default function CreditInformation() {
+  const { loanAmount, initialPayment, loanTerm, interestRate } = useSelector(
+    (state) => state.mortgageCalculatorForm
+  );
 
   let setMonthlyPayment = getMonthlyPayment(
-    Number(costOfRealEstate) - Number(initialPayment),
+    Number(loanAmount),
     Number(loanTerm),
     Number(interestRate)
   );
@@ -22,15 +23,13 @@ export default function RealtyCreditInformation() {
       <div className="info-value">
         <div className="info-value-item">
           <div className="item-name">Кредит</div>
-          <div className="item-value">
-            {`${Number(costOfRealEstate) - Number(initialPayment)} ₽`}
-          </div>
+          <div className="item-value">{`${Number(loanAmount)} ₽`}</div>
         </div>
         <div className="info-value-item">
           <div className="item-name">Проценты</div>
           <div className="item-value">
             {`${getPercentages(
-              Number(costOfRealEstate) - Number(initialPayment),
+              Number(loanAmount),
               setMonthlyPayment,
               interestRate,
               loanTerm
@@ -41,10 +40,10 @@ export default function RealtyCreditInformation() {
           <div className="item-name">Проценты + Кредит</div>
           <div className="item-value">
             {`${
-              Number(costOfRealEstate) -
+              Number(loanAmount) -
               Number(initialPayment) +
               getPercentages(
-                Number(costOfRealEstate) - Number(initialPayment),
+                Number(loanAmount),
                 setMonthlyPayment,
                 interestRate,
                 loanTerm

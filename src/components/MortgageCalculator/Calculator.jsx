@@ -130,7 +130,7 @@ export default function Calculator() {
                       <div className="total-value">
                         <h2>
                           {getMonthlyPayment(
-                            Number(costOfRealEstate) - Number(initialPayment),
+                            Number(loanAmount),
                             Number(loanTerm),
                             Number(interestRate)
                           )}

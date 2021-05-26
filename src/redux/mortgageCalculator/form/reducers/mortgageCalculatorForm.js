@@ -8,12 +8,12 @@ import {
 } from "../actions/actionsTypes";
 
 const initialState = {
-  costOfRealEstate: "",
+  costOfRealEstate: 500000,
   initialPayment: "",
-  loanTerm: "",
+  loanTerm: 1,
   loanAmount: "",
-  interestRate: "",
-  monthlyPayment: "",
+  interestRate: 1,
+  monthlyPayment: 2000,
 };
 
 export default function mortgageCalculatorFormReducer(

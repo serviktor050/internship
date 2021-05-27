@@ -9,8 +9,10 @@ import RealtyForm from "./CalculatorForms/RealtyForm";
 import CreditForm from "./CalculatorForms/CreditForm";
 import PaymentForm from "./CalculatorForms/PaymentForm";
 import { getMonthlyPayment } from "../../CalculationFunctions/getMonthlyPayment";
+import { getCostOfRealEstate } from "../../CalculationFunctions/getCostOfRealEstate";
 import RealtyInformation from "./Info/RealtyInformation";
 import CreditInformation from "./Info/CreditInformation";
+import PaymentInformation from "./Info/PaymentInformation";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
@@ -143,16 +145,23 @@ export default function Calculator() {
                 )}
 
                 {payment && (
-                  <div className="total">
-                    <div className="total-name">
-                      <p>Стоимость недвижимости</p>
+                  <>
+                    <div className="total">
+                      <div className="total-name">
+                        <p>Стоимость недвижимости</p>
+                      </div>
+                      <div className="total-value">
+                        <h2>{`${getCostOfRealEstate(
+                          Number(monthlyPayment),
+                          Number(loanTerm),
+                          Number(interestRate),
+                          Number(initialPayment)
+                        )} ₽`}</h2>
+                      </div>
                     </div>
-                    <div className="total-value">
-                      <h2> ₽</h2>
-                    </div>
-                  </div>
+                    <PaymentInformation />
+                  </>
                 )}
-                {/* <CreditInformation /> */}
               </div>
             </div>
           </form>

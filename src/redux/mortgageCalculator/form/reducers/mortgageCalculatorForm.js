@@ -9,9 +9,9 @@ import {
 
 const initialState = {
   costOfRealEstate: 500000,
-  initialPayment: "",
+  initialPayment: 0,
   loanTerm: 1,
-  loanAmount: "",
+  loanAmount: 1,
   interestRate: 1,
   monthlyPayment: 2000,
 };

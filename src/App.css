@@ -8,7 +8,7 @@ body {
   margin-right: auto;
 }
 
-a {
+.menu-item a {
   text-decoration: none;
   color: black;
 }
@@ -281,4 +281,11 @@ a {
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+}
+
+.form-item-input .ant-slider {
+  margin: 0;
+  margin-top: -2%;
+  padding: 0;
+  width: 347px;
 }

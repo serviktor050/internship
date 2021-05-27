@@ -7,6 +7,7 @@ import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
 import User from "./components/Pages/User";
 import MortgageCalculator from "./components/Pages/MortgageCalculator";
+import "antd/dist/antd.css";
 
 function App() {
   return (

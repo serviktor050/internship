@@ -9,6 +9,7 @@ import {
 import ChoosingInitialPayment from "../FastButtons/ChoosingInitialPayment";
 import ChoosingLoanTerm from "../FastButtons/ChoosingLoanTerm";
 import ChoosingInterestRate from "../FastButtons/ChoosingInterestRate";
+import { Slider } from "antd";
 
 export default function RealtyForm() {
   const dispatch = useDispatch();
@@ -29,6 +30,14 @@ export default function RealtyForm() {
             }}
             value={costOfRealEstate}
           />
+          <Slider
+            defaultValue={500000}
+            min={500000}
+            max={99999999}
+            onChange={(value) => {
+              dispatch(changeCostOfRealEstateField(value));
+            }}
+          />
         </div>
       </div>
       <div className="form-item">
@@ -41,6 +50,14 @@ export default function RealtyForm() {
               dispatch(changeInitialPaymentField(evt.target.value));
             }}
             value={initialPayment}
+          />
+          <Slider
+            defaultValue={0}
+            min={0}
+            max={costOfRealEstate - 500000}
+            onChange={(value) => {
+              dispatch(changeInitialPaymentField(value));
+            }}
           />
         </div>
         <ChoosingInitialPayment />
@@ -56,6 +73,14 @@ export default function RealtyForm() {
             }}
             value={loanTerm}
           />
+          <Slider
+            defaultValue={1}
+            min={1}
+            max={30}
+            onChange={(value) => {
+              dispatch(changeLoanTermField(value));
+            }}
+          />
         </div>
         <ChoosingLoanTerm />
       </div>
@@ -69,6 +94,15 @@ export default function RealtyForm() {
               dispatch(changeInterestRateField(evt.target.value));
             }}
             value={interestRate}
+          />
+          <Slider
+            defaultValue={1}
+            min={1}
+            max={30}
+            step={0.1}
+            onChange={(value) => {
+              dispatch(changeInterestRateField(value));
+            }}
           />
         </div>
         <ChoosingInterestRate />

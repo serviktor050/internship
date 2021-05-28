@@ -36,6 +36,7 @@ export default function PaymentForm() {
             onChange={(value) => {
               dispatch(changeMonthlyPaymentField(value));
             }}
+            value={monthlyPayment}
           />
         </div>
       </div>
@@ -57,6 +58,7 @@ export default function PaymentForm() {
             onChange={(value) => {
               dispatch(changeInitialPaymentField(value));
             }}
+            value={initialPayment}
           />
         </div>
       </div>
@@ -78,6 +80,7 @@ export default function PaymentForm() {
             onChange={(value) => {
               dispatch(changeLoanTermField(value));
             }}
+            value={loanTerm}
           />
         </div>
         <ChoosingLoanTerm />
@@ -101,6 +104,7 @@ export default function PaymentForm() {
             onChange={(value) => {
               dispatch(changeInterestRateField(value));
             }}
+            value={interestRate}
           />
         </div>
         <ChoosingInterestRate />

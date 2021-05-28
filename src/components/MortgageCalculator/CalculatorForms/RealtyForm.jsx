@@ -37,6 +37,7 @@ export default function RealtyForm() {
             onChange={(value) => {
               dispatch(changeCostOfRealEstateField(value));
             }}
+            value={costOfRealEstate}
           />
         </div>
       </div>
@@ -54,10 +55,11 @@ export default function RealtyForm() {
           <Slider
             defaultValue={0}
             min={0}
-            max={costOfRealEstate - 500000}
+            max={costOfRealEstate * 0.3}
             onChange={(value) => {
               dispatch(changeInitialPaymentField(value));
             }}
+            value={initialPayment}
           />
         </div>
         <ChoosingInitialPayment />
@@ -80,6 +82,7 @@ export default function RealtyForm() {
             onChange={(value) => {
               dispatch(changeLoanTermField(value));
             }}
+            value={loanTerm}
           />
         </div>
         <ChoosingLoanTerm />
@@ -103,6 +106,7 @@ export default function RealtyForm() {
             onChange={(value) => {
               dispatch(changeInterestRateField(value));
             }}
+            value={interestRate}
           />
         </div>
         <ChoosingInterestRate />

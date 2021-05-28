@@ -36,6 +36,7 @@ export default function CreditForm() {
             onChange={(value) => {
               dispatch(changeLoanAmountField(value));
             }}
+            value={loanAmount}
           />
         </div>
       </div>
@@ -57,6 +58,7 @@ export default function CreditForm() {
             onChange={(value) => {
               dispatch(changeLoanTermField(value));
             }}
+            value={loanTerm}
           />
         </div>
         <ChoosingLoanTerm />
@@ -80,6 +82,7 @@ export default function CreditForm() {
             onChange={(value) => {
               dispatch(changeInterestRateField(value));
             }}
+            value={interestRate}
           />
         </div>
         <ChoosingInterestRate />

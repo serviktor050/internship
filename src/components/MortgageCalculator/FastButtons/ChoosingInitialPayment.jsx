@@ -27,7 +27,9 @@ export default function ChoosingInitialPayment() {
         className="input-buttons-item"
         onClick={() => {
           if (costOfRealEstate !== "") {
-            dispatch(changeInitialPaymentField(costOfRealEstate * 0.1));
+            dispatch(
+              changeInitialPaymentField((costOfRealEstate * 0.1).toFixed())
+            );
           } else {
             return;
           }
@@ -40,7 +42,9 @@ export default function ChoosingInitialPayment() {
         className="input-buttons-item"
         onClick={() => {
           if (costOfRealEstate !== "") {
-            dispatch(changeInitialPaymentField(costOfRealEstate * 0.15));
+            dispatch(
+              changeInitialPaymentField((costOfRealEstate * 0.15).toFixed())
+            );
           } else {
             return;
           }
@@ -53,7 +57,9 @@ export default function ChoosingInitialPayment() {
         className="input-buttons-item"
         onClick={() => {
           if (costOfRealEstate !== "") {
-            dispatch(changeInitialPaymentField(costOfRealEstate * 0.2));
+            dispatch(
+              changeInitialPaymentField((costOfRealEstate * 0.2).toFixed())
+            );
           } else {
             return;
           }
@@ -66,7 +72,9 @@ export default function ChoosingInitialPayment() {
         className="input-buttons-item"
         onClick={() => {
           if (costOfRealEstate !== "") {
-            dispatch(changeInitialPaymentField(costOfRealEstate * 0.25));
+            dispatch(
+              changeInitialPaymentField((costOfRealEstate * 0.25).toFixed())
+            );
           } else {
             return;
           }
@@ -79,7 +87,9 @@ export default function ChoosingInitialPayment() {
         className="input-buttons-item"
         onClick={() => {
           if (costOfRealEstate !== "") {
-            dispatch(changeInitialPaymentField(costOfRealEstate * 0.3));
+            dispatch(
+              changeInitialPaymentField((costOfRealEstate * 0.3).toFixed())
+            );
           } else {
             return;
           }

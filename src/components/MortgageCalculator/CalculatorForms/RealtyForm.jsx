@@ -39,6 +39,7 @@ export default function RealtyForm() {
             }}
             value={costOfRealEstate}
           />
+          <div className="units">₽</div>
         </div>
       </div>
       <div className="form-item">
@@ -61,6 +62,7 @@ export default function RealtyForm() {
             }}
             value={initialPayment}
           />
+          <div className="units">₽</div>
         </div>
         <ChoosingInitialPayment />
       </div>
@@ -84,6 +86,7 @@ export default function RealtyForm() {
             }}
             value={loanTerm}
           />
+          <div className="units">₽</div>
         </div>
         <ChoosingLoanTerm />
       </div>
@@ -108,6 +111,7 @@ export default function RealtyForm() {
             }}
             value={interestRate}
           />
+          <div className="units">%</div>
         </div>
         <ChoosingInterestRate />
       </div>

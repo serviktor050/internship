@@ -38,6 +38,7 @@ export default function CreditForm() {
             }}
             value={loanAmount}
           />
+          <div className="units">₽</div>
         </div>
       </div>
       <div className="form-item">
@@ -60,6 +61,7 @@ export default function CreditForm() {
             }}
             value={loanTerm}
           />
+          <div className="units">Лет</div>
         </div>
         <ChoosingLoanTerm />
       </div>
@@ -84,6 +86,7 @@ export default function CreditForm() {
             }}
             value={interestRate}
           />
+          <div className="units">%</div>
         </div>
         <ChoosingInterestRate />
       </div>

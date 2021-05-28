@@ -289,3 +289,12 @@ body {
   padding: 0;
   width: 347px;
 }
+
+.form-item-input .units {
+  position: relative;
+  width: 35px;
+  left: 310px;
+  bottom: 40px;
+  margin-bottom: 0;
+  text-align: end;
+}

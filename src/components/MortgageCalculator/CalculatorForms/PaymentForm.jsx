@@ -38,6 +38,7 @@ export default function PaymentForm() {
             }}
             value={monthlyPayment}
           />
+          <div className="units">₽</div>
         </div>
       </div>
       <div className="form-item">
@@ -60,6 +61,7 @@ export default function PaymentForm() {
             }}
             value={initialPayment}
           />
+          <div className="units">₽</div>
         </div>
       </div>
       <div className="form-item">
@@ -82,6 +84,7 @@ export default function PaymentForm() {
             }}
             value={loanTerm}
           />
+          <div className="units">Лет</div>
         </div>
         <ChoosingLoanTerm />
       </div>
@@ -106,6 +109,7 @@ export default function PaymentForm() {
             }}
             value={interestRate}
           />
+          <div className="units">%</div>
         </div>
         <ChoosingInterestRate />
       </div>

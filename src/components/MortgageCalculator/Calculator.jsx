@@ -10,6 +10,7 @@ import { getCostOfRealEstate } from "../../CalculationFunctions/getCostOfRealEst
 import RealtyInformation from "./Info/RealtyInformation";
 import CreditInformation from "./Info/CreditInformation";
 import PaymentInformation from "./Info/PaymentInformation";
+import CalculatorChartRealty from "./CalculatorChart/CalculatorChartRealty";
 
 export default function Calculator() {
   const { realty, credit, payment } = useSelector(
@@ -128,6 +129,7 @@ export default function Calculator() {
               </div>
             </div>
           </form>
+          {realty && <CalculatorChartRealty />}
         </div>
       </div>
     </>

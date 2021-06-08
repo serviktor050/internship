@@ -20,7 +20,7 @@ export default function CalculatorChartRealty() {
     {
       month: 0,
       percentPart: 0,
-      remainingDebt: 0,
+      debtPart: 0,
     },
   ]);
 
@@ -57,19 +57,19 @@ export default function CalculatorChartRealty() {
           составляющих кредита, где:
         </p>
         <ul>
-          <li>синий - оставшийся долг;</li>
-          <li>красный - процентная часть;</li>
+          <li>синий - доля основного долга;</li>
+          <li>красный - доля процентов;</li>
           <li>зеленый - величина ежемесячного платежа.</li>
         </ul>
       </div>
       <div className="calculator-chart-field">
         <LineChart width={800} height={300} data={count}>
           <XAxis dataKey="month" />
-          <YAxis dataKey="remainingDebt" />
+          <YAxis dataKey="payment" />
           <Tooltip />
           <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
           <Line type="monotone" dataKey="percentPart" stroke="red" />
-          <Line type="monotone" dataKey="remainingDebt" stroke="blue" />
+          <Line type="monotone" dataKey="debtPart" stroke="blue" />
           <Line type="monotone" dataKey="payment" stroke="green" />
           payment
         </LineChart>

@@ -10,7 +10,7 @@ export const getDataForRealtyChart = (credit, payment, rate, duration) => {
     data.push({
       month: i,
       percentPart: Number(percentPart.toFixed(2)),
-      remainingDebt: Number(remainingDebt.toFixed(2)),
+      debtPart: Number((payment - percentPart).toFixed(2)),
       payment: Number(payment.toFixed(2)),
     });
   }

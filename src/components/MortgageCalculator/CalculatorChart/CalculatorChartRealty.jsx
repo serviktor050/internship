@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getDataForRealtyChart } from "../../../CalculationFunctions/getDataForRealtyChart";
+import { getDataForChart } from "../../../CalculationFunctions/getDataForChart";
 import { getMonthlyPayment } from "../../../CalculationFunctions/getMonthlyPayment";
 
 import {
@@ -30,14 +30,14 @@ export default function CalculatorChartRealty() {
       Number(loanTerm),
       Number(interestRate)
     );
-    getDataForRealtyChart(
+    getDataForChart(
       Number(costOfRealEstate) - Number(initialPayment),
       Number(setMonthlyPayment),
       Number(interestRate),
       Number(loanTerm)
     );
     setCount(
-      getDataForRealtyChart(
+      getDataForChart(
         Number(costOfRealEstate) - Number(initialPayment),
         Number(setMonthlyPayment),
         Number(interestRate),

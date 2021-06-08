@@ -1,4 +1,4 @@
-export const getDataForRealtyChart = (credit, payment, rate, duration) => {
+export const getDataForChart = (credit, payment, rate, duration) => {
   let rateInMonth = (rate / 12) * 0.01;
   let period = duration * 12;
   let remainingDebt = credit;

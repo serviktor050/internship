@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getDataForChart } from "../../../CalculationFunctions/getDataForChart";
-import { getMonthlyPayment } from "../../../CalculationFunctions/getMonthlyPayment";
+import { getCostOfRealEstate } from "../../../CalculationFunctions/getCostOfRealEstate";
 
 import {
   LineChart,
@@ -12,10 +12,9 @@ import {
   Line,
 } from "recharts";
 
-export default function CalculatorChartCredit() {
-  const { loanAmount, initialPayment, loanTerm, interestRate } = useSelector(
-    (state) => state.mortgageCalculatorForm
-  );
+export default function CalculatorChartPayment() {
+  const { monthlyPayment, initialPayment, loanTerm, interestRate } =
+    useSelector((state) => state.mortgageCalculatorForm);
 
   const [count, setCount] = useState([
     {
@@ -26,31 +25,32 @@ export default function CalculatorChartCredit() {
   ]);
 
   useEffect(() => {
-    let setMonthlyPayment = getMonthlyPayment(
-      Number(loanAmount),
+    let setCostOfRealEstate = getCostOfRealEstate(
+      Number(monthlyPayment),
       Number(loanTerm),
-      Number(interestRate)
+      Number(interestRate),
+      Number(initialPayment)
     );
     getDataForChart(
-      Number(loanAmount),
-      Number(setMonthlyPayment),
+      Number(setCostOfRealEstate),
+      Number(monthlyPayment),
       Number(interestRate),
       Number(loanTerm)
     );
     setCount(
       getDataForChart(
-        Number(loanAmount),
-        Number(setMonthlyPayment),
+        Number(setCostOfRealEstate),
+        Number(monthlyPayment),
         Number(interestRate),
         Number(loanTerm)
       )
     );
-  }, [loanAmount, initialPayment, interestRate, loanTerm]);
+  }, [monthlyPayment, initialPayment, interestRate, loanTerm]);
 
   return (
     <div className="calculator-chart">
       <div className="calculator-chart-name">
-        <h2>График "Кредит"</h2>
+        <h2>График "Платеж"</h2>
       </div>
       <div className="calculator-chart-description">
         <p>

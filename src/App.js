@@ -8,12 +8,14 @@ import Register from "./components/Pages/Register";
 import User from "./components/Pages/User";
 import MortgageCalculator from "./components/Pages/MortgageCalculator";
 import "antd/dist/antd.css";
+import Timer from "./components/Pages/Timer";
 
 function App() {
   return (
     <Router>
       <Menu />
       <Switch>
+        <Route path="/timer" component={Timer} />
         <Route path="/mortgage-calculator" component={MortgageCalculator} />
         <Route path="/list-users/user-:id" component={User} />
         <Route path="/list-users" component={ListUsers} />

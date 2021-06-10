@@ -302,3 +302,11 @@ body {
 .calculator-chart {
   margin-top: 2%;
 }
+
+/*******  Страница "Таймер"  *******/
+.progress-ring__circle {
+  background-color: blue;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 1s;
+}

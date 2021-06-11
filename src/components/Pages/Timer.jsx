@@ -9,8 +9,22 @@ export default function Timer() {
   const [timer, setTimer] = useState("");
   const [btnStatus, setBtnStatus] = useState(false);
 
+  let circle;
+  let radius;
+  let circumference;
+  let offset;
+
+  circle = document.querySelector(".progress-ring__circle");
+
+  if (circle !== null) {
+    radius = circle.r.baseVal.value;
+    circumference = 2 * Math.PI * radius;
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = circumference;
+  }
+
   const setProgress = (seconds) => {
-    const offset = circumference - (seconds / 60) * circumference;
+    offset = circumference - (seconds / 60) * circumference;
     circle.style.strokeDashoffset = offset;
   };
 
@@ -19,45 +33,66 @@ export default function Timer() {
       setTimeout(() => {
         if (timer > 0) {
           setTimer(timer - 1);
-          setProgress(timer);
+          setProgress(timer - 1);
+        } else if (timer === 0) {
+          setBtnStatus(false);
         }
       }, 1000);
     }
   }, [timer, btnStatus]);
 
   const handleChange = (evt) => {
-    setChangeTime(evt.target.value);
+    setChangeTime(Number(evt.target.value));
   };
-
-  let circle;
-  let radius;
-  let circumference;
-
-  if (timer !== "" && timer !== 0) {
-    circle = document.querySelector(".progress-ring__circle");
-    radius = circle.r.baseVal.value;
-    circumference = 2 * Math.PI * radius;
-    circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    circle.style.strokeDashoffset = circumference;
-  }
 
   return (
     <>
       {userToken === null && <Redirect to="/" />}
       <h1>Таймер</h1>
-      <p>Установите время:</p>
-      <input type="number" onChange={handleChange} value={changeTime} />
-      <button
-        onClick={() => {
-          setTimer(changeTime);
-          setChangeTime("");
-        }}
-      >
-        Установить
-      </button>
-      {!btnStatus && timer !== 0 && timer !== null && (
-        <>
-          <div>{timer}</div>
+      <div className="timer">
+        <p>Установите время:</p>
+        <div className="timer-input">
+          <input
+            type="text"
+            onChange={handleChange}
+            value={changeTime}
+            placeholder="На сколько секунд?"
+          />
+          {timer === "" && (
+            <button
+              onClick={() => {
+                setTimer(changeTime);
+                setChangeTime("");
+              }}
+            >
+              Установить
+            </button>
+          )}
+          {timer === 0 && (
+            <button
+              onClick={() => {
+                setTimer(changeTime);
+                setChangeTime("");
+              }}
+            >
+              Установить
+            </button>
+          )}
+
+          {!btnStatus && timer !== "" && timer !== 0 && (
+            <button onClick={() => setBtnStatus((prev) => !prev)}>Cтарт</button>
+          )}
+          {btnStatus && timer !== 0 && (
+            <button onClick={() => setBtnStatus((prev) => !prev)}>Пауза</button>
+          )}
+        </div>
+        {timer === 0 && timer !== "" && (
+          <div className="timer-message">
+            <p>Время вышло!</p>
+          </div>
+        )}
+        <div className="timer-value-and-progress">
+          {timer !== 0 && <div className="timer-value">{timer}</div>}
           <svg className="progress-ring" width="160" height="160">
             <circle
               className="progress-ring__circle"
@@ -68,17 +103,9 @@ export default function Timer() {
               r="70"
               fill="transparent"
             />
-            <text> Start </text>
           </svg>
-        </>
-      )}
-      {timer === 0 && <div>Время вышло!</div>}
-      {!btnStatus && timer !== "" && timer !== 0 && (
-        <button onClick={() => setBtnStatus((prev) => !prev)}>Cтарт</button>
-      )}
-      {btnStatus && (
-        <button onClick={() => setBtnStatus((prev) => !prev)}>Пауза</button>
-      )}
+        </div>
+      </div>
     </>
   );
 }

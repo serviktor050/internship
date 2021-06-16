@@ -8,7 +8,6 @@ export default function Timer() {
   const [changeTime, setChangeTime] = useState(""); //Изменение значения времени в инпуте
   const [timer, setTimer] = useState(""); //Изменение значения времени таймере
   const [btnStatus, setBtnStatus] = useState(false); //Фиксация значения положения кнопок Старт/Пауза
-  const [offset, setOffset] = useState(""); //Фиксация значения смещения полоски индикатора
 
   const circle = useRef(); //Создание окружности таймера
 
@@ -19,13 +18,12 @@ export default function Timer() {
     radius = circle.current.r.baseVal.value;
     circumference = 2 * Math.PI * radius;
     circle.current.style.strokeDasharray = `${circumference} ${circumference}`;
-    circle.current.style.strokeDashoffset = circumference;
   }
 
   useEffect(() => {
     const setProgress = (seconds) => {
-      setOffset(circumference - (seconds / 60) * circumference);
-      circle.current.style.strokeDashoffset = offset;
+      circle.current.style.strokeDashoffset =
+        circumference - (seconds / 60) * circumference;
       circle.current.style.stroke = "aqua";
     };
 
@@ -40,7 +38,7 @@ export default function Timer() {
         circle.current.style.strokeDashoffset = circumference;
       }
     }
-  }, [timer, btnStatus, circumference, offset]);
+  }, [timer, btnStatus, circumference]);
 
   const handleChange = (evt) => {
     setChangeTime(Number(evt.target.value));
@@ -59,20 +57,12 @@ export default function Timer() {
             value={changeTime}
             placeholder="На сколько секунд?"
           />
-          {timer === "" && (
+          {!timer && (
             <button
               onClick={() => {
                 setTimer(changeTime);
-                setChangeTime("");
-              }}
-            >
-              Установить
-            </button>
-          )}
-          {timer === 0 && (
-            <button
-              onClick={() => {
-                setTimer(changeTime);
+                circle.current.style.strokeDashoffset =
+                  circumference - (changeTime / 60) * circumference;
                 setChangeTime("");
               }}
             >
@@ -96,6 +86,7 @@ export default function Timer() {
           <svg className="progress-ring" width="160" height="160">
             <circle
               className="progress-ring__circle"
+              stroke="aqua"
               strokeWidth="12"
               cx="80"
               cy="80"

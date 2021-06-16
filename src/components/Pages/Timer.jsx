@@ -1,45 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 export default function Timer() {
   const { userToken } = useSelector((state) => state.loginAndRegisterPage);
 
-  const [changeTime, setChangeTime] = useState("");
-  const [timer, setTimer] = useState("");
-  const [btnStatus, setBtnStatus] = useState(false);
+  const [changeTime, setChangeTime] = useState(""); //Изменение значения времени в инпуте
+  const [timer, setTimer] = useState(""); //Изменение значения времени таймере
+  const [btnStatus, setBtnStatus] = useState(false); //Фиксация значения положения кнопок Старт/Пауза
+  const [offset, setOffset] = useState(""); //Фиксация значения смещения полоски индикатора
 
-  let circle;
+  const circle = useRef(); //Создание окружности таймера
+
   let radius;
   let circumference;
-  let offset;
 
-  circle = document.querySelector(".progress-ring__circle");
-
-  if (circle !== null) {
-    radius = circle.r.baseVal.value;
+  if (circle.current !== undefined) {
+    radius = circle.current.r.baseVal.value;
     circumference = 2 * Math.PI * radius;
-    circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    circle.style.strokeDashoffset = circumference;
+    circle.current.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.current.style.strokeDashoffset = circumference;
   }
 
-  const setProgress = (seconds) => {
-    offset = circumference - (seconds / 60) * circumference;
-    circle.style.strokeDashoffset = offset;
-  };
-
   useEffect(() => {
+    const setProgress = (seconds) => {
+      setOffset(circumference - (seconds / 60) * circumference);
+      circle.current.style.strokeDashoffset = offset;
+      circle.current.style.stroke = "aqua";
+    };
+
     if (btnStatus) {
-      setTimeout(() => {
-        if (timer > 0) {
+      if (timer !== 0) {
+        setTimeout(() => {
           setTimer(timer - 1);
-          setProgress(timer - 1);
-        } else if (timer === 0) {
-          setBtnStatus(false);
-        }
-      }, 1000);
+          setProgress(timer - 2);
+        }, 1000);
+      } else {
+        setBtnStatus(false);
+        circle.current.style.strokeDashoffset = circumference;
+      }
     }
-  }, [timer, btnStatus]);
+  }, [timer, btnStatus, circumference, offset]);
 
   const handleChange = (evt) => {
     setChangeTime(Number(evt.target.value));
@@ -78,7 +79,6 @@ export default function Timer() {
               Установить
             </button>
           )}
-
           {!btnStatus && timer !== "" && timer !== 0 && (
             <button onClick={() => setBtnStatus((prev) => !prev)}>Cтарт</button>
           )}
@@ -86,7 +86,7 @@ export default function Timer() {
             <button onClick={() => setBtnStatus((prev) => !prev)}>Пауза</button>
           )}
         </div>
-        {timer === 0 && timer !== "" && (
+        {timer === 0 && (
           <div className="timer-message">
             <p>Время вышло!</p>
           </div>
@@ -96,12 +96,12 @@ export default function Timer() {
           <svg className="progress-ring" width="160" height="160">
             <circle
               className="progress-ring__circle"
-              stroke="red"
               strokeWidth="12"
               cx="80"
               cy="80"
               r="70"
               fill="transparent"
+              ref={circle}
             />
           </svg>
         </div>

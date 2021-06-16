@@ -342,3 +342,10 @@ body {
   transform: rotate(-90deg);
   transition: stroke-dashoffset 1s;
 }
+
+.progress-ring {
+  z-index: 2;
+}
+.progress-ring-shadow {
+  position: absolute;
+}

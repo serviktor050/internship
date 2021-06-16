@@ -31,7 +31,7 @@ export default function Timer() {
       if (timer !== 0) {
         setTimeout(() => {
           setTimer(timer - 1);
-          setProgress(timer - 2);
+          setProgress(timer - 1);
         }, 1000);
       } else {
         setBtnStatus(false);
@@ -95,6 +95,19 @@ export default function Timer() {
               ref={circle}
             />
           </svg>
+          {timer !== 0 && (
+            <svg className="progress-ring-shadow" width="160" height="160">
+              <circle
+                className="progress-ring-shadow__circle"
+                stroke="red"
+                strokeWidth="11"
+                cx="80"
+                cy="80"
+                r="70"
+                fill="transparent"
+              />
+            </svg>
+          )}
         </div>
       </div>
     </>
